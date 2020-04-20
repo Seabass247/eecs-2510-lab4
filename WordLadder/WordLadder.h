@@ -73,7 +73,8 @@ private:
     // Returns the location within the vector of the given string; returns -1 if not found
     //
     //
-    int findInVector(vector<string> vec, string);
+    int findInVector(vector<string> vec, string str);
+
 
 
     //---------------------------------------------------------------------------------------------

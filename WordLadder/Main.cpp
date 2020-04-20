@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "WordLadder.h"
 using namespace std;
 
 // A helper function that converts every character in a string to their respective lowercase values,
@@ -32,8 +33,7 @@ int main(int argc, char* argv[])
 		return 0; // exit the program
 	}
 
-	int word_len = first_word.length();
-
-	cout << first_word << endl;
-	cout << last_word << endl;
+	WordLadder* wordLadder = new WordLadder(dict_filename, first_word.length());
+	vector<string> resultSequence = wordLadder->getMinLadder(first_word, last_word);
+	wordLadder->displayResult(resultSequence);
 }
