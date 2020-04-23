@@ -1,26 +1,15 @@
+// WordLadder.h
+// By Sebastian Hamel
+// Provided by Larry Thomas, University of Toledo (Larry.Thomas@UToledo.edu) 4/18/2020
+// For EECS 2510, Spring 2020
+// Written 4/20/2020
+// A header file for the WordLadder class.  Specifies the interface of WordLadder and contains all of its
+// method and member variable declarations.
+
 #pragma once
-// YOU MAY NOT #include ANYTHING OTHER THAN THRESE THREE STL CLASSES
 #include <vector>
 #include <string>
 #include <set>
-
-//
-// WordLadder.h Defines an interface for games that construct word ladders.
-// See https://en.wikipedia.org/wiki/Word_ladder for a definition and history.
-// 
-// Word ladders are constructed in the context of some predefined list of valid words. We will refer to
-// this word list as the lexicon. An implementing class of this header must provide a way to explicitly
-// set the lexicon. This will typically be done in the constructor.
-// 
-// For the purposes of this interface and all implementing classes, a string is a word if and only if it 
-// appears in the current lexicon. In the documentation of each instance method, the use of 'string' means 
-// that the referenced string does not have to be a word, while the use of 'word' implies that the
-// referenced string must be a word.
-// 
-// Originally written as a Java project by Dean Hentrix (dh@auburn.edu)
-// 
-// Converted to a C++ project by Larry Thomas, University of Toledo (Larry.Thomas@UToledo.edu) 4/18/2020
-// 
 
 using namespace std;
 

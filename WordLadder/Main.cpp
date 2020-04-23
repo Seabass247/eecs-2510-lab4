@@ -1,5 +1,10 @@
-// Main.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Main.cpp
+// By Sebastian Hamel
+// For EECS 2510, Spring 2020
+// Written 4/20/2020
+// Contains the main function which is the entry point to this program.  Parses arguments passed to the program,
+// and if the arguments are in a valid format, find the shortest word latter corresponding to the conditions
+// from the arguments.
 
 #include <iostream>
 #include "WordLadder.h"
@@ -14,6 +19,10 @@ string stringToUpper(const string s) {
 	return tmp;
 }
 
+// The entry point to the program. Consumes arguments passed to WordLadder.exe and if the correct number of
+// arguments are supplied, parse them into a dictionary file name, the first word string, last word string
+// respectively.  Then, with these paramaters, find the shortest word ladder between the START and END words
+// and ouput the result.
 int main(int argc, char* argv[])
 {
     if (argc != 4) // If the argument count is not correct...
@@ -33,6 +42,8 @@ int main(int argc, char* argv[])
 		return 0; // exit the program
 	}
 
+	// Create a new word ladder, get the shortest word ladder, and display the result
+	// whether such a word ladder exists or not.
 	WordLadder* wordLadder = new WordLadder(dict_filename, first_word.length());
 	vector<string> resultSequence = wordLadder->getMinLadder(first_word, last_word);
 	wordLadder->displayResult(resultSequence);
