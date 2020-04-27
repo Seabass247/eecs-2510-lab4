@@ -10,8 +10,8 @@
 #include "WordLadder.h"
 using namespace std;
 
-// A helper function that converts every character in a string to their respective lowercase values,
-// and therefore outputs the entire string in lowercase.
+// A utility function that converts every character in a string to their respective lowercase values,
+// which returns the entire string in uppercase.
 string stringToUpper(const string s) {
 	string tmp = s;
 	for (int i = 0; i < s.length(); i++)
@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
         return 0; // exit the program
     }
 
-    // Get the first and last words from the program args as uppercase words.
+    // Get the first and last words from the program args as uppercase strings.
     string dict_filename = (string)argv[1];
     string first_word = stringToUpper((string)argv[2]);
     string last_word = stringToUpper((string)argv[3]);

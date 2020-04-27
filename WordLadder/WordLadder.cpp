@@ -44,7 +44,7 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 // ladder exists, this method returns an empty list. Uses a breadth-first search.
 vector<string> WordLadder::getMinLadder(string start, string end)
 {
-	if (!isWord(start)) // if the START word is not in the dictionary, we cannot proceed to make a word ladder...
+	if (!isWord(start) || !isWord(end)) // if the START (or END) word is not in the dictionary, we cannot proceed to make a word ladder...
 		return vector<string>(); // ...return an empty word ladder (there will be no solution)
 
 	vector<string> ladder; // start with an empty ladder,
@@ -98,9 +98,10 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 							 // so return the empty vector.
 }
 
-// Returns the location within the vector of the given string (value of the specified string's index in the vector); returns -1 if not found
-// by means of iterating through the entire vector, comaparing the string to the current string at the current iteration until
-// said strings are equal, otherwise if the return wasn't taken, the loop ends and we return -1, meaning the string was not found.
+// Returns the location within the vector of the given string (value of the specified string's index 
+// in the vector); returns -1 if not found by means of iterating through the entire vector, comaparing
+// the string to the current string at the current iteration until said strings are equal, otherwise if 
+// the return wasn't taken, the loop ends and we return -1, meaning the string was not found.
 int WordLadder::findInVector(vector<string> vec, string str)
 {
 	int location = -1; // location starts at -1 so that in the for loop it begins counting at 0.
@@ -114,9 +115,9 @@ int WordLadder::findInVector(vector<string> vec, string str)
 	return -1;
 }
 
-// Checks to see if the given string is a word, by means of iterating through the entire set, comparing said string to 
-// the string at the current iteration, returning true if the strings are equal (if the string is in the lexicon set,
-// it is a word by definition; isWord returns true)
+// Checks to see if the given string is a word, by means of iterating through the entire set,
+// comparing said string to the string at the current iteration, returning true if the strings 
+// are equal (if the string is in the lexicon set, it is a word by definition; isWord returns true)
 bool WordLadder::isWord(string str)
 {
 	for (set<string>::iterator it = lexicon.begin(); it != lexicon.end(); ++it) // iterate over all the strings in the set
@@ -127,8 +128,9 @@ bool WordLadder::isWord(string str)
 	return false; // if we get here, we never took the return, thus str is not in the set, and it is not a word
 }
 
-// Checks to see if the given sequence of strings is a valid word ladder.  If the starting and ending strings of the sequence are
-// valid words, and the sequence contains more than 1 string, then the word ladder represented by sequence is valid.
+// Checks to see if the given sequence of strings is a valid word ladder.  If the starting and 
+// ending strings of the sequence are valid words, and the sequence contains more than 1 string, 
+// then the word ladder represented by sequence is valid.
 bool WordLadder::isWordLadder(vector<string> sequence)
 {
 	if (sequence.size() < 2)
@@ -144,9 +146,10 @@ int WordLadder::getWordCount()
 	return lexicon.size();
 }
 
-// Used to display the result, whether empty, or a valid WordLadder.  Outputs either "Word Ladder is empty - No Solution" or 
-// "A Shortest Word Ladder ([steps] steps) is:" where steps is one fewer than the size of the sequence of words from getMinLadder.
-// If steps is -1, the sequence must have had 0 word strings, meaning getMinLadder could not find a valid word ladder.
+// Used to display the result, whether empty, or a valid WordLadder.  Outputs either "Word Ladder
+// is empty - No Solution" or "A Shortest Word Ladder ([steps] steps) is:" where steps is one fewer
+// than the size of the sequence of words from getMinLadder. If steps is -1, the sequence must have had 
+// 0 word strings, meaning getMinLadder could not find a valid word ladder.
 void WordLadder::displayResult(vector<string> sequence)
 {
 	int steps = sequence.size() - 1;
